@@ -2,7 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateEmployeeDto, EmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
 import { EntityManager } from 'typeorm';
-import { EmployeeEntity} from 'src/employee.entity';
+import { EmployeeEntity} from 'src/model/employee.entity';
 import * as dayjs from 'dayjs';
 
 @Injectable()
@@ -11,9 +11,9 @@ export class EmployeeService {
 
     constructor(private entityManager:EntityManager){}
 
-    async getAllEmployees(): Promise<EmployeeDto[]> {
+    async getAllEmployees(limit:number, offset:number): Promise<EmployeeDto[]> {
         let data:EmployeeDto[]=[];
-        const d:any = await this.entityManager.find(EmployeeEntity);
+        const d:any = await this.entityManager.find(EmployeeEntity,{skip:offset, take:limit});
         d.map((e)=>{
             let employee = new EmployeeDto(e);
             data.push(employee);

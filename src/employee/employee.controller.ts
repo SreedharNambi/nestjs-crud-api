@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { EmployeeService } from './employee.service';
 import { CreateEmployeeDto, EmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
@@ -9,8 +9,11 @@ export class EmployeeController {
 
 
     @Get()
-    async getAllEmployees(): Promise<EmployeeDto[]>{
-        return this.employeeService.getAllEmployees();
+    async getAllEmployees(
+        @Query('limit') limit: number,
+        @Query('offset') offset: number
+    ): Promise<EmployeeDto[]>{
+        return this.employeeService.getAllEmployees(limit || 10 , offset || 0);
     }
 
     @Get(':id')

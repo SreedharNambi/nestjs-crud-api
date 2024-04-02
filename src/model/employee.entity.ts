@@ -23,10 +23,10 @@ export class EmployeeEntity{
     @Column()
     dob: string;
 
-    @Column({})
+    @Column({default:()=>'CURRENT_TIMESTAMP'})
     createdOn:string;
 
-    @Column({})
+    @Column({default:()=>'CURRENT_TIMESTAMP'})
     updatedOn:string;
 
     @Column({})
