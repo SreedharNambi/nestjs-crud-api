@@ -62,6 +62,42 @@ $ yarn run test:cov
  # List of Controllers
     # 1. Employees
     # 2. Candidate
+
+ # Database Schema
+
+Candidate Table
+
+CREATE TABLE candidate (
+    candidateId UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name VARCHAR,
+    joiningDate VARCHAR,
+    mobile VARCHAR,
+    email VARCHAR,
+    age INTEGER,
+    createdDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+Employee Table
+
+CREATE TABLE employee (
+    employee_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    id INTEGER,
+    name VARCHAR,
+    email VARCHAR,
+    phone VARCHAR,
+    createdBy VARCHAR,
+    dob DATE,
+    createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedBy VARCHAR
+);
+
+
+
+
+
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
