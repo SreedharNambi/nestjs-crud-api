@@ -65,33 +65,34 @@ $ yarn run test:cov
 
  # Database Schema
 
-Candidate Table
+    # Candidate Table
 
-CREATE TABLE candidate (
-    candidateId UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name VARCHAR,
-    joiningDate VARCHAR,
-    mobile VARCHAR,
-    email VARCHAR,
-    age INTEGER,
-    createdDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+     CREATE TABLE candidate (
+          candidateId UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+          name VARCHAR,
+          joiningDate VARCHAR,
+          mobile VARCHAR,
+          email VARCHAR,
+          age INTEGER,
+          createdDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          updatedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
 
-Employee Table
+    # Employee Table
 
-CREATE TABLE employee (
-    employee_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    id INTEGER,
-    name VARCHAR,
-    email VARCHAR,
-    phone VARCHAR,
-    createdBy VARCHAR,
-    dob DATE,
-    createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedBy VARCHAR
-);
+      CREATE TABLE employee (
+          employee_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+          id INTEGER,
+          name VARCHAR,
+          email VARCHAR,
+          phone VARCHAR,
+          createdBy VARCHAR,
+          dob DATE,
+          createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          updatedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          updatedBy VARCHAR
+      );
+#
 
 
 
